@@ -19,7 +19,7 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: '12.x'
-    - uses: steebchen/flutter@v1.0.0
+    - uses: takuyaohashi/setup-flutter@v1
     - name: Install dependencies
       run: flutter pub get
     - name: Build apk
