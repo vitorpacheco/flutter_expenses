@@ -16,7 +16,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - uses: subosito/flutter-action@v1.2.0
+      with:
+        channel: 'stable'
     - name: Install dependencies
       run: flutter pub get
-    - name: Run Doctor
-      run: flutter doctor
+    - name: Build apk
+      run: flutter build apk
+    - uses: upload-artifact@v1
+      with:
+        path: ./build/app/outputs/apk/release/app-release.apk
+        name: app-release.apk
