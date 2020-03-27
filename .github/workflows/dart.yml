@@ -8,6 +8,7 @@ on:
 
 env:
   flutter_version: "1.15.17"
+  flutter_channel: "beta"
   java_version: "12.x"
 
 jobs:
@@ -30,6 +31,7 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         flutter-version: ${{ env.flutter_version }}
+        channel: ${{ env.flutter_channel }}
     - name: Install dependencies
       run: flutter pub get
     - name: Build apk
